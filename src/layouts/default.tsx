@@ -11,8 +11,6 @@ export default function Default({ children }: Props) {
   const [prevScrollPos, setPrevScrollPos] = useState<number>(0);
   const [current, setCurrent] = useState<number>()
 
-
-  const ref = useRef()
   
   useEffect(() => {
     const handleScroll = () => {

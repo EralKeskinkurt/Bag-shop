@@ -2,13 +2,19 @@ import { GiSchoolBag } from "react-icons/gi";
 import { GrShop } from "react-icons/gr";
 import { LuHeart } from "react-icons/lu";
 import { NavLink } from "react-router-dom";
-
+import Cart from "../Cart";
+import { useState } from "react";
+import type { RootState } from '../../store/store'
+import { useSelector, useDispatch } from 'react-redux'
 interface Props {
   isNavbarVisible?: boolean,
   currentScrollPos: number
 }
 
 export default function Navbar({ isNavbarVisible, currentScrollPos }: Props) {
+  const  [isCart, setIsCart] = useState(false);
+  const cartProduct = useSelector((state: RootState) => state.product).cart
+
   return (
     <nav className={`${isNavbarVisible ? 'top-0 ' : '-top-full'} transition-all duration-400 ${currentScrollPos <= 0 ? 'bg-transparent' : 'bg-white'} py-8 h-auto flex items-center w-full justify-center  fixed left-0 z-30`}>
       <div className={`container w-full flex justify-center h-full px-20`}>
@@ -30,10 +36,11 @@ export default function Navbar({ isNavbarVisible, currentScrollPos }: Props) {
               <NavLink to="/login">Login</NavLink>
             </li>
             <li><NavLink to="/wishlist" ><LuHeart size={26} /></NavLink></li>
-            <li><GrShop size={26} /></li>
+            <li className="relative">{cartProduct.length > 0 && <span className="absolute bg-red-600 w-5 h-5 text-center rounded-full flex items-center justify-center text-xs text-white -bottom-3 -right-2">{cartProduct.length}</span>}<GrShop className="cursor-pointer" onClick={() => setIsCart(true)} size={26} /></li>
           </ul>
         </div>
       </div>
+      <Cart isCart={isCart} setIsCart={setIsCart}  />
     </nav>
   )
 }

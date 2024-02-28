@@ -5,7 +5,7 @@ import { VscDebugRestart } from "react-icons/vsc";
 import { FaCartShopping } from "react-icons/fa6";
 import type { RootState } from '../store/store'
 import { useSelector, useDispatch } from 'react-redux'
-import { addWishList } from "../store/product.store";
+import { addWishList, addCart } from "../store/product.store";
 export default function HomePageProducts() {
     const starCount = [1, 2, 3, 4, 5];
     const product = useSelector((state: RootState) => state.product).product
@@ -27,7 +27,7 @@ export default function HomePageProducts() {
                                         <button className="bg-white rounded-sm p-2.5 group-hover:translate-x-4 transition-transform duration-[200ms] -translate-x-14 shadow-gray-500 shadow-sm"><AiFillEye /></button>
                                         <button className="bg-white rounded-sm p-2.5 group-hover:translate-x-4 transition-transform duration-[300ms] -translate-x-14 shadow-gray-500 shadow-sm"><CiHeart onClick={() => dispatch(addWishList(p))} /></button>
                                         <button className="bg-white rounded-sm p-2.5 group-hover:translate-x-4 transition-transform duration-[500ms] -translate-x-14 shadow-gray-500 shadow-sm"><VscDebugRestart /></button>
-                                        <button className="bg-white rounded-sm p-2.5 group-hover:translate-x-4 transition-transform duration-[700ms] -translate-x-14 shadow-gray-500 shadow-sm"><FaCartShopping /></button>
+                                        <button className="bg-white rounded-sm p-2.5 group-hover:translate-x-4 transition-transform duration-[700ms] -translate-x-14 shadow-gray-500 shadow-sm"><FaCartShopping onClick={() => dispatch(addCart(p))} /></button>
                                     </div>
                                 </figure>
                                 <div className="w-full flex items-center justify-between gap-5">
