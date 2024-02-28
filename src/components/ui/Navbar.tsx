@@ -29,7 +29,7 @@ export default function Navbar({ isNavbarVisible, currentScrollPos }: Props) {
               <hr className="w-full h-[3px] absolute -translate-x-16 group-hover:translate-x-0 bg-black group-hover:w-full transition-all duration-300" />
               <NavLink to="/login">Login</NavLink>
             </li>
-            <li><LuHeart size={26} /></li>
+            <li><NavLink to="/wishlist" ><LuHeart size={26} /></NavLink></li>
             <li><GrShop size={26} /></li>
           </ul>
         </div>

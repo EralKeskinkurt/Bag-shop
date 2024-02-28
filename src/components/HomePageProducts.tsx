@@ -5,10 +5,11 @@ import { VscDebugRestart } from "react-icons/vsc";
 import { FaCartShopping } from "react-icons/fa6";
 import type { RootState } from '../store/store'
 import { useSelector, useDispatch } from 'react-redux'
+import { addWishList } from "../store/product.store";
 export default function HomePageProducts() {
     const starCount = [1, 2, 3, 4, 5];
     const product = useSelector((state: RootState) => state.product).product
-
+    const dispatch = useDispatch()
     return (
         <section id="homepage-products" className="w-full">
             <div className="w-full container px-20 py-14 flex flex-col items-start justify-start gap-14">
@@ -24,7 +25,7 @@ export default function HomePageProducts() {
                                     <img src={p.image} alt="Product" />
                                     <div className="absolute flex  flex-col items-center   font-semibold bottom-8 gap-1.5 text-[1.2rem]">
                                         <button className="bg-white rounded-sm p-2.5 group-hover:translate-x-4 transition-transform duration-[200ms] -translate-x-14 shadow-gray-500 shadow-sm"><AiFillEye /></button>
-                                        <button className="bg-white rounded-sm p-2.5 group-hover:translate-x-4 transition-transform duration-[300ms] -translate-x-14 shadow-gray-500 shadow-sm"><CiHeart /></button>
+                                        <button className="bg-white rounded-sm p-2.5 group-hover:translate-x-4 transition-transform duration-[300ms] -translate-x-14 shadow-gray-500 shadow-sm"><CiHeart onClick={() => dispatch(addWishList(p))} /></button>
                                         <button className="bg-white rounded-sm p-2.5 group-hover:translate-x-4 transition-transform duration-[500ms] -translate-x-14 shadow-gray-500 shadow-sm"><VscDebugRestart /></button>
                                         <button className="bg-white rounded-sm p-2.5 group-hover:translate-x-4 transition-transform duration-[700ms] -translate-x-14 shadow-gray-500 shadow-sm"><FaCartShopping /></button>
                                     </div>
