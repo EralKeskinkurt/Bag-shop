@@ -1,6 +1,7 @@
 import {createBrowserRouter} from "react-router-dom"
-import { Home, Login, WishList } from "../pages"
+import { Home, Login, WishList, Cart, CheckOut } from "../pages"
 import Default from "../layouts/default"
+
 
 
 export const router = createBrowserRouter([
@@ -15,5 +16,13 @@ export const router = createBrowserRouter([
     {
         path:'/wishlist',
         element: <Default><WishList /></Default>
+    },
+    {
+        path:'/cart',
+        element:<Default><Cart/></Default>
+    },
+    {
+        path:'/checkout',
+        element: <Default><CheckOut/></Default>
     }
 ])

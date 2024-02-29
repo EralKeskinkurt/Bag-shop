@@ -25,9 +25,9 @@ export default function HomePageProducts() {
                                     <img src={p.image} alt="Product" />
                                     <div className="absolute flex  flex-col items-center   font-semibold bottom-8 gap-1.5 text-[1.2rem]">
                                         <button className="bg-white rounded-sm p-2.5 group-hover:translate-x-4 transition-transform duration-[200ms] -translate-x-14 shadow-gray-500 shadow-sm"><AiFillEye /></button>
-                                        <button className="bg-white rounded-sm p-2.5 group-hover:translate-x-4 transition-transform duration-[300ms] -translate-x-14 shadow-gray-500 shadow-sm"><CiHeart onClick={() => dispatch(addWishList(p))} /></button>
+                                        <button onClick={() => dispatch(addWishList(p))} className="bg-white rounded-sm p-2.5 group-hover:translate-x-4 transition-transform duration-[300ms] -translate-x-14 shadow-gray-500 shadow-sm"><CiHeart  /></button>
                                         <button className="bg-white rounded-sm p-2.5 group-hover:translate-x-4 transition-transform duration-[500ms] -translate-x-14 shadow-gray-500 shadow-sm"><VscDebugRestart /></button>
-                                        <button className="bg-white rounded-sm p-2.5 group-hover:translate-x-4 transition-transform duration-[700ms] -translate-x-14 shadow-gray-500 shadow-sm"><FaCartShopping onClick={() => dispatch(addCart(p))} /></button>
+                                        <button onClick={() => dispatch(addCart({...p, count:1}))} className="bg-white rounded-sm p-2.5 group-hover:translate-x-4 transition-transform duration-[700ms] -translate-x-14 shadow-gray-500 shadow-sm"><FaCartShopping  /></button>
                                     </div>
                                 </figure>
                                 <div className="w-full flex items-center justify-between gap-5">

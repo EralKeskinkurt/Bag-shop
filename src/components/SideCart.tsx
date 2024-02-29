@@ -2,10 +2,24 @@ import { useEffect } from "react"
 import { IoMdClose } from "react-icons/io";
 import type { RootState } from '../store/store'
 import { useSelector, useDispatch } from 'react-redux'
-import { deleteCartProduct } from "../store/product.store";
-export default function Cart({ isCart, setIsCart }: { isCart: boolean, setIsCart: (value: boolean) => void }) {
+import { deleteCartProduct, addCart, fullDeleteCartProduct } from "../store/product.store";
+import { NavLink } from "react-router-dom";
+export default function SideCart({ isCart, setIsCart }: { isCart: boolean, setIsCart: (value: boolean) => void }) {
     const dispatch = useDispatch()
     const cartProducts = useSelector((state: RootState) => state.product).cart
+
+    const increment = (p: Cart) => {
+        if (p.count <= 99) {
+            return dispatch(addCart({ id: p.id, name: p.name, image: p.image, price: p.price, count: p.count }))
+        }
+    }
+
+
+    const decrement = (p: Cart) => {
+        if (p.count >= 2) {
+            return dispatch(deleteCartProduct(p.id))
+        }
+    }
 
     useEffect(() => {
         if (isCart) {
@@ -36,13 +50,20 @@ export default function Cart({ isCart, setIsCart }: { isCart: boolean, setIsCart
                             <ul className="flex flex-col h-full w-full items-start gap-5 overflow-y-auto cart-flow">
                                 {cartProducts.map((p, i) => {
                                     return (
-                                        <li className="flex items-start w-full gap-5 border-b border-b-gray-300 py-5">
+                                        <li key={i} className="flex items-start w-full gap-5 border-b border-b-gray-300 py-5">
                                             <img src={p.image} alt="product" className="h-[4.4rem] w-[4.4rem]" />
                                             <div className="flex flex-col items-start gap-3 flex-grow">
                                                 <h3 className="text-lg font-medium">{p.name}</h3>
-                                                <span>1x ${p.price}</span>
+                                                <div className="flex items-center gap-4">
+                                                    <div className="flex items-center w-auto gap-3 text-[1.05rem]">
+                                                        <span onClick={() => decrement(p)} className="cursor-pointer text-[1.2rem] bg-gray-200  px-2">-</span>
+                                                        <input type="number" value={p.count} className="outline-none border-none w-6" />
+                                                        <span onClick={() => increment(p)} className="cursor-pointer text-[1.2rem] bg-gray-200  px-2">+</span>
+                                                    </div> 
+                                                    ${p.price * p.count}
+                                                </div>
                                             </div>
-                                            <IoMdClose onClick={() => dispatch(deleteCartProduct(p.id))} className="text-gray-400 cursor-pointer hover:text-black" size={28} />
+                                            <IoMdClose onClick={() => dispatch(fullDeleteCartProduct(p.id))} className="text-gray-400 cursor-pointer hover:text-black" size={28} />
                                         </li>
                                     )
                                 })}
@@ -50,10 +71,12 @@ export default function Cart({ isCart, setIsCart }: { isCart: boolean, setIsCart
                             <div className="w-full flex flex-col items-start gap-4">
                                 <div className="flex items-center h-auto justify-between w-full">
                                     <span className="text-[1.9rem]">Subtotal</span>
-                                    <span className="text-[1.9rem]">$98.00</span>
+                                    <span className="text-[1.9rem]">${cartProducts.reduce((prev:number, current) => {
+                                        return prev + current.price * current.count
+                                    },0) + 20}.00</span>
                                 </div>
-                                <button className="font-semibold bg-[#562e48] border transition-all border-[#562e48] text-white rounded-full w-full py-2 hover:bg-white hover:text-[#562e48] px-12">VIEW CART</button>
-                                <button className="font-semibold bg-[#562e48] border transition-all border-[#562e48] text-white rounded-full w-full py-2 hover:bg-white hover:text-[#562e48] px-12">CHECKOUT</button>
+                                <NavLink to="/cart" className="font-semibold bg-[#562e48] border transition-all border-[#562e48] text-white rounded-full w-full py-2 hover:bg-white hover:text-[#562e48] px-12">VIEW CART</NavLink>
+                                <NavLink to="/checkout" className="font-semibold bg-[#562e48] border transition-all border-[#562e48] text-white rounded-full w-full py-2 hover:bg-white hover:text-[#562e48] px-12">CHECKOUT</NavLink>
                             </div>
                         </div>
                     }

@@ -2,7 +2,7 @@ import { GiSchoolBag } from "react-icons/gi";
 import { GrShop } from "react-icons/gr";
 import { LuHeart } from "react-icons/lu";
 import { NavLink } from "react-router-dom";
-import Cart from "../Cart";
+import SideCart from "../SideCart";
 import { useState } from "react";
 import type { RootState } from '../../store/store'
 import { useSelector, useDispatch } from 'react-redux'
@@ -40,7 +40,7 @@ export default function Navbar({ isNavbarVisible, currentScrollPos }: Props) {
           </ul>
         </div>
       </div>
-      <Cart isCart={isCart} setIsCart={setIsCart}  />
+      <SideCart isCart={isCart} setIsCart={setIsCart}  />
     </nav>
   )
 }

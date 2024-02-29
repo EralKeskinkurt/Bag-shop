@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 
 
+
 export const useProductStore = createSlice({
     name: 'product',
     initialState: {
@@ -56,8 +57,9 @@ export const useProductStore = createSlice({
             }
         ],
         wishList: [] as Product[],
-        cart: [] as Product[]
+        cart: [] as  Cart[]
     },
+
     reducers: {
         addWishList: (state, data: PayloadAction<Product>) => {
             state.wishList.push(data.payload);
@@ -65,15 +67,41 @@ export const useProductStore = createSlice({
         removeProductWishList: (state, data: PayloadAction<number>) => {
             state.wishList = state.wishList.filter((p) => p.id != data.payload);
         },
-        addCart: (state, data: PayloadAction<Product>) => {
-            state.cart.push(data.payload);
+        addCart: (state, data: PayloadAction<Cart>) => {
+            if(state.cart.find((p) => p.id === data.payload.id)){
+                state.cart.map((p) => {
+                    if (p.id === data.payload.id) {
+                        return p.count = p.count + 1
+                    }   
+                })
+            }else{
+                state.cart.push(data.payload) 
+            }
         },
         deleteCartProduct: (state, data: PayloadAction<number>) => {
+            state.cart.map((p) => {
+                if(p.id === data.payload && p.count > 1){
+                     if (p.count > 1) {
+                        console.log(p)
+                        return p.count = p.count - 1
+                     }
+                }
+
+                if(p.id === data.payload){
+                    if (p.count === 1) {
+                        console.log(p)
+                        return state.cart = state.cart.filter((p) => p.id != data.payload)
+                        
+                    }
+                }
+            })
+        },
+        fullDeleteCartProduct:(state, data: PayloadAction<number>) => {
             state.cart = state.cart.filter((p) => p.id != data.payload)
         }
     },
 })
 
-export const { addWishList, removeProductWishList, addCart, deleteCartProduct } = useProductStore.actions
+export const { addWishList, removeProductWishList, addCart, deleteCartProduct,fullDeleteCartProduct } = useProductStore.actions
 
 export default useProductStore.reducer
