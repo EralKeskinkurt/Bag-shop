@@ -57,7 +57,8 @@ export const useProductStore = createSlice({
             }
         ],
         wishList: [] as Product[],
-        cart: [] as  Cart[]
+        cart: [] as  Cart[],
+        view: {} as Product
     },
 
     reducers: {
@@ -82,14 +83,12 @@ export const useProductStore = createSlice({
             state.cart.map((p) => {
                 if(p.id === data.payload && p.count > 1){
                      if (p.count > 1) {
-                        console.log(p)
                         return p.count = p.count - 1
                      }
                 }
 
                 if(p.id === data.payload){
                     if (p.count === 1) {
-                        console.log(p)
                         return state.cart = state.cart.filter((p) => p.id != data.payload)
                         
                     }
@@ -98,10 +97,13 @@ export const useProductStore = createSlice({
         },
         fullDeleteCartProduct:(state, data: PayloadAction<number>) => {
             state.cart = state.cart.filter((p) => p.id != data.payload)
+        },
+        setViewProduct: (state, data:PayloadAction<Product>) => {
+            state.view = data.payload
         }
     },
 })
 
-export const { addWishList, removeProductWishList, addCart, deleteCartProduct,fullDeleteCartProduct } = useProductStore.actions
+export const { addWishList, removeProductWishList, addCart, deleteCartProduct,fullDeleteCartProduct, setViewProduct } = useProductStore.actions
 
 export default useProductStore.reducer

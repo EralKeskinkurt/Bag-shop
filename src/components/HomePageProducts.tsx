@@ -5,11 +5,23 @@ import { VscDebugRestart } from "react-icons/vsc";
 import { FaCartShopping } from "react-icons/fa6";
 import type { RootState } from '../store/store'
 import { useSelector, useDispatch } from 'react-redux'
-import { addWishList, addCart } from "../store/product.store";
+import { addWishList, addCart, setViewProduct } from "../store/product.store";
+import ProductInfo from "./ProductInfo";
+import { useState } from "react";
+
 export default function HomePageProducts() {
     const starCount = [1, 2, 3, 4, 5];
     const product = useSelector((state: RootState) => state.product).product
+    const  [isInfo, setInfo] = useState(false);
     const dispatch = useDispatch()
+
+    const addViewProduct = (p:Product) => {
+        dispatch(setViewProduct(p))
+
+        setTimeout(() => {
+            setInfo(true)
+        },100)
+    }
     return (
         <section id="homepage-products" className="w-full">
             <div className="w-full container px-20 py-14 flex flex-col items-start justify-start gap-14">
@@ -24,7 +36,7 @@ export default function HomePageProducts() {
                                 <figure className="relative overflow-hidden group">
                                     <img src={p.image} alt="Product" />
                                     <div className="absolute flex  flex-col items-center   font-semibold bottom-8 gap-1.5 text-[1.2rem]">
-                                        <button className="bg-white rounded-sm p-2.5 group-hover:translate-x-4 transition-transform duration-[200ms] -translate-x-14 shadow-gray-500 shadow-sm"><AiFillEye /></button>
+                                        <button onClick={()=> addViewProduct(p)} className="bg-white rounded-sm p-2.5 group-hover:translate-x-4 transition-transform duration-[200ms] -translate-x-14 shadow-gray-500 shadow-sm"><AiFillEye /></button>
                                         <button onClick={() => dispatch(addWishList(p))} className="bg-white rounded-sm p-2.5 group-hover:translate-x-4 transition-transform duration-[300ms] -translate-x-14 shadow-gray-500 shadow-sm"><CiHeart  /></button>
                                         <button className="bg-white rounded-sm p-2.5 group-hover:translate-x-4 transition-transform duration-[500ms] -translate-x-14 shadow-gray-500 shadow-sm"><VscDebugRestart /></button>
                                         <button onClick={() => dispatch(addCart({...p, count:1}))} className="bg-white rounded-sm p-2.5 group-hover:translate-x-4 transition-transform duration-[700ms] -translate-x-14 shadow-gray-500 shadow-sm"><FaCartShopping  /></button>
@@ -49,6 +61,7 @@ export default function HomePageProducts() {
                     })}
                 </ul>
             </div>
+            <ProductInfo isInfo={isInfo} setInfo={setInfo} />
         </section>
     )
 }
