@@ -81,4 +81,8 @@
         -webkit-appearance: none;
         margin: 0;
     }
+
+    .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input{
+        padding: 0 !important;
+    }
 }

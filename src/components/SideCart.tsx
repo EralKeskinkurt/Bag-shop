@@ -75,8 +75,8 @@ export default function SideCart({ isCart, setIsCart }: { isCart: boolean, setIs
                                         return prev + current.price * current.count
                                     },0) + 20}.00</span>
                                 </div>
-                                <NavLink to="/cart" className="font-semibold bg-[#562e48] border transition-all border-[#562e48] text-white rounded-full w-full py-2 hover:bg-white hover:text-[#562e48] px-12">VIEW CART</NavLink>
-                                <NavLink to="/checkout" className="font-semibold bg-[#562e48] border transition-all border-[#562e48] text-white rounded-full w-full py-2 hover:bg-white hover:text-[#562e48] px-12">CHECKOUT</NavLink>
+                                <NavLink to="/cart" className="font-semibold bg-[#562e48] text-center border transition-all border-[#562e48] text-white rounded-full w-full py-2 hover:bg-white hover:text-[#562e48] px-12">VIEW CART</NavLink>
+                                <NavLink to="/checkout" className="font-semibold bg-[#562e48] border text-center transition-all border-[#562e48] text-white rounded-full w-full py-2 hover:bg-white hover:text-[#562e48] px-12">CHECKOUT</NavLink>
                             </div>
                         </div>
                     }

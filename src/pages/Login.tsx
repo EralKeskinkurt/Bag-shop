@@ -27,7 +27,7 @@ export default function Login() {
                                     <button className="font-semibold bg-black border transition-all border-black text-white rounded-full py-2 hover:bg-white hover:text-black px-12">Login</button>
                                     <span className="flex items-center gap-2"><input type="checkbox" /> Remember me</span>
                                 </div>
-                                <span className="cursor-pointer">Lost yout password?</span>
+                                <span className="cursor-pointer">Lost your password?</span>
                             </form>
                         </div>
                         <div className="flex flex-col items-start justify-start gap-10">
