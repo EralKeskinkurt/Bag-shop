@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import SideCart from "../SideCart";
 import { useState } from "react";
 import type { RootState } from '../../store/store'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { IoMdMenu } from "react-icons/io";
 import MobileRightBar from "../MobileRightBar";
 interface Props {

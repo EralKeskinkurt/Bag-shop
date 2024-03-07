@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useSelector, useDispatch } from 'react-redux'
 import { IoMdClose } from "react-icons/io";
 import type { RootState } from '../store/store'
-import { deleteCartProduct, addCart } from "../store/product.store";
+import { addCart } from "../store/product.store";
 import { FaStar } from "react-icons/fa";
 export default function ProductInfo({ isInfo, setInfo }: { isInfo: boolean, setInfo: (value: boolean) => void }) {
     const [count, setCount] = useState(1)
@@ -47,7 +47,7 @@ export default function ProductInfo({ isInfo, setInfo }: { isInfo: boolean, setI
                     </div>
                     <div className="flex flex-col items-start gap-3 py-5 px-10">
                         <div className="flex items-center gap-1">
-                            {starCount.map((a, z) => {
+                            {starCount.map((_a, z) => {
                                 return (
                                     <FaStar key={z} size={16} />
                                 )

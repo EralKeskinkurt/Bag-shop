@@ -49,7 +49,7 @@ export default function HomePageProducts() {
                                         <span className="text-2xl">{p.price}.00 $</span>
                                     </div>
                                     <div className="flex items-center mb-1  gap-1">
-                                        {starCount.map((a, z) => {
+                                        {starCount.map((_a, z) => {
                                             return (
                                                 <FaStar key={z} size={11} />
                                             )

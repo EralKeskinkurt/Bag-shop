@@ -1,6 +1,6 @@
 import { useInView } from 'react-intersection-observer';
 export default function PromotionalProducts() {
-    const { ref, inView, entry } = useInView({
+    const { ref, inView } = useInView({
         /* Optional options */
         threshold: 0,
       });

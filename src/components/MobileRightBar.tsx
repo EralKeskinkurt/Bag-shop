@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { LuHeart } from "react-icons/lu"
 import type { RootState } from '../store/store'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { NavLink } from "react-router-dom"
 import { GrShop } from "react-icons/gr"
 import SideCart from "./SideCart"

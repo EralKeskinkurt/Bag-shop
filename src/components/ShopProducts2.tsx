@@ -1,11 +1,8 @@
 import { FaStar } from "react-icons/fa";
 import { AiFillEye } from "react-icons/ai";
-import { CiHeart } from "react-icons/ci";
-import { VscDebugRestart } from "react-icons/vsc";
-import { FaCartShopping } from "react-icons/fa6";
 import type { RootState } from '../store/store'
 import { useSelector, useDispatch } from 'react-redux'
-import { addWishList, addCart, setViewProduct } from "../store/product.store";
+import { addCart, setViewProduct } from "../store/product.store";
 import ProductInfo from "./ProductInfo";
 import { useState } from "react";
 
@@ -39,7 +36,7 @@ export default function ShopProducts2() {
                                     <hr className="my-5" />
                                     <span className="text-2xl">{p.price}.00 $</span>
                                     <div className="flex items-center my-4 gap-1">
-                                        {starCount.map((a, z) => {
+                                        {starCount.map((_a, z) => {
                                             return (
                                                 <FaStar key={z} size={12} />
                                             )

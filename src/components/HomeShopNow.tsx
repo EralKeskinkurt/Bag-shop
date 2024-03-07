@@ -78,7 +78,7 @@ export default function HomeShopNow() {
                     <div className="flex items-center gap-5">
                         <span className="text-4xl">162.00 $</span>
                         <div className="flex items-center gap-1">
-                            {starCount.map((a, i) => {
+                            {starCount.map((_a, i) => {
                                 return (
                                     <FaStar key={i} size={11} />
                                 )

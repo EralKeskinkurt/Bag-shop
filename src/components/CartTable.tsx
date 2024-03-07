@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+
 import { IoMdClose } from "react-icons/io";
 import { useDispatch } from "react-redux";
 import { deleteCartProduct, addCart, fullDeleteCartProduct } from "../store/product.store";
