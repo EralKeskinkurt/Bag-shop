@@ -83,7 +83,7 @@
     }
 
     .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input{
-        padding: 0 !important;
+        padding: -1px !important;
         border: none !important;
     }
    
