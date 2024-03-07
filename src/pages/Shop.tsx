@@ -40,7 +40,7 @@ export default function Shop() {
                 <div className="w-full flex flex-col gap-16 items-center justify-center">
                     <div className="flex items-center justify-between w-full">
                         <Select
-                            className="w-72 max-sm:w-52 -py-1 !bg-gray-100 !outline-none"
+                            className="w-72 max-sm:w-52 !-py-1 !bg-gray-100 !outline-none"
                             id="demo-simple-select"
                             value={select ? select : "10"}
                             onChange={handleChange}
