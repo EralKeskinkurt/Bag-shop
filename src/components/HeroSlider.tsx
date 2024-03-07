@@ -29,10 +29,10 @@ export default function HeroSlider() {
     >
       <SwiperSlide>
         <div className="object-cover w-full h-full hero-background">
-          <div className='container grid grid-cols-2 w-full h-full items-center justify-between px-20'>
-            <div className='flex-col items-start gap-10 justify-center'>
+          <div className='container grid grid-cols-2 max-sm:grid-cols-[auto_0fr] overflow-hidden w-full h-full items-center justify-between px-20'>
+            <div className='flex-col items-start gap-10 justify-center max-sm:mt-10'>
               <h4 className={`font-semibold ${change}`}>AMAZING PRODUCT!</h4>
-              <h1 className={`text-[5rem] font-semibold ${change}`}>BACKPACK</h1>
+              <h1 className={`text-[5rem] max-sm:text-[2rem] font-semibold ${change}`}>BACKPACK</h1>
               <p className={`font-[300] ${change}`}>Neque porro quisquam est, qui
                 dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed
                 quia non numquam eius modi
@@ -47,10 +47,10 @@ export default function HeroSlider() {
       </SwiperSlide>
       <SwiperSlide>
         <div className="object-cover w-full h-full hero-background">
-          <div className='container grid grid-cols-2 w-full h-full items-center justify-between px-20'>
-            <div className='flex-col items-start gap-10 justify-center'>
+          <div className='container grid grid-cols-2 w-full max-sm:grid-cols-[auto_0fr] h-full items-center justify-between px-20'>
+            <div className='flex-col items-start gap-10 justify-center max-sm:mt-10'>
               <h4 className={`font-semibold ${change}`} >AMAZING PRODUCT!</h4>
-              <h1 className={`text-[5rem] font-semibold ${change}`}>BACKPACK</h1>
+              <h1 className={`text-[5rem] max-sm:text-[2rem]  font-semibold ${change}`}>BACKPACK</h1>
               <p className={`font-[300] ${change}`}>Neque porro quisquam est, quiT
                 dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed
                 quia non numquam eius modi

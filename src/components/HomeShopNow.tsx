@@ -52,13 +52,13 @@ export default function HomeShopNow() {
 
     return (
         <section className="w-full">
-            <div className="container w-full px-56 py-20 grid grid-cols-2 justify-evenly gap-28 items-start">
-                <div className="flex w-full items-center gap-14">
+            <div className="container w-full px-56 max-sm:px-10 py-20 flex flex-wrap gap-28 items-start">
+                <div className="flex w-auto flex-wrap items-center gap-14">
                     <figure className="relative">
-                        <img className="z-20" src="https://htmldemo.net/payne/payne/assets/img/products/product-11-321x450.png" alt="Shop now product" />
-                        <h1 className="-rotate-90 text-gray-300/70 font-semibold text-[4.5rem] absolute z-10 -left-56 top-44">BACKPACK</h1>
+                        <img className="z-20 object-cover" src="https://htmldemo.net/payne/payne/assets/img/products/product-11-321x450.png" alt="Shop now product" />
+                        <h1 className="-rotate-90 text-gray-300/70 font-semibold text-[4.5rem] max-sm:text-[2.5rem] absolute z-10 max-sm:-left-28 -left-56 max-sm:top-32 top-44">BACKPACK</h1>
                     </figure>
-                    <div className="flex flex-col items-center justify-start gap-7">
+                    <div className="flex flex-col max-sm:flex-row items-center justify-start gap-7">
                         <figure>
                             <img src="https://htmldemo.net/payne/payne/assets/img/products/product-11-123x127.jpg" alt="Shop now product" />
                         </figure>
@@ -70,7 +70,7 @@ export default function HomeShopNow() {
                         </figure>
                     </div>
                 </div>
-                <div className="w-full flex flex-col items-start gap-8">
+                <div className="flex flex-col items-start gap-8">
                     <div className="flex flex-col gap-3 items-start">
                         <h2 className="text-4xl font-semibold">BLINGO BACKPACK</h2>
                         <p className="text-[0.9rem]">Neque porro quisquam est, qui dolorem ipsum quia dolor <br /> ipisci velit, sed quia non numquam eius modi</p>

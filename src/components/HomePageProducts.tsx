@@ -25,7 +25,7 @@ export default function HomePageProducts() {
     return (
         <section id="homepage-products" className="w-full">
             <div className="w-full container px-20 py-14 flex flex-col items-start justify-start gap-14">
-                <div className="flex flex-col items-start gap-3 text-start px-24">
+                <div className="flex flex-col items-start gap-3 text-start px-24 max-sm:px-0">
                     <h1 className="text-3xl font-semibold">NEW ARRIVALS</h1>
                     <p className="text-[0.9rem]">Neque porro quisquam est, qui dolorem ipsum quia  dolor <br /> ipisci velit, sed quia non numquam eius modi</p>
                 </div>

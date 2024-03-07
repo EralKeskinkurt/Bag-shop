@@ -10,9 +10,9 @@ export default function Login() {
                 </div>
             </section>
             <section className="w-full bg-white">
-                <div className="container px-36 flex items-center justify-center py-20">
-                    <div className="w-full grid grid-cols-2 gap-10 items-start justify-evenly">
-                        <div className="flex flex-col items-start justify-start gap-10">
+                <div className="container px-36 max-sm:px-10 flex items-center justify-center py-20">
+                    <div className="w-full flex flex-wrap gap-10 items-start justify-evenly">
+                        <div className="flex w-[35rem] flex-col items-start justify-start gap-10">
                             <h4 className="font-semibold">Login</h4>
                             <form className="w-full text-sm flex flex-col items-start gap-8">
                                 <div className="w-full flex flex-col items-start gap-2">
@@ -30,7 +30,7 @@ export default function Login() {
                                 <span className="cursor-pointer">Lost your password?</span>
                             </form>
                         </div>
-                        <div className="flex flex-col items-start justify-start gap-10">
+                        <div className="flex w-[35rem] flex-col items-start justify-start gap-10">
                             <h4 className="font-semibold">Register</h4>
                             <form className="w-full text-sm flex flex-col items-start gap-8">
                                 <div className="w-full flex flex-col items-start gap-2">

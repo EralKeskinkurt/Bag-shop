@@ -31,7 +31,7 @@ export default function SideCart({ isCart, setIsCart }: { isCart: boolean, setIs
     }, [isCart])
 
     return (
-        <div className={`fixed max-h-screen flex justify-end w-full inset-0 transition-all duration-300 ${isCart ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+        <div className={`fixed max-h-screen flex justify-end w-full inset-0 transition-all z-30 duration-300 ${isCart ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
             <div onClick={() => setIsCart(false)} className="absolute h-full inset-0 bg-black/60">
 
             </div>
